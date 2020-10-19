@@ -20,6 +20,8 @@ cd nonogram-parser
 
 ## Usage
 
+**Disclaimer**: This script is fething data from the https://www.puzzle-nonograms.com/ website. Please don't overload their server by making hundreds of requests.
+
 First, go to [this website](https://www.puzzle-nonograms.com/) and copy the grid id.
 
 ![grid-id](/.github/grid-id.png)
