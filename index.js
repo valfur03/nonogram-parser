@@ -1,6 +1,6 @@
 const https = require("https");
 
-if (process.argv.length < 4) return (console.log("Error: Need 2 arguments (size, specid)"));
+if (process.argv.length < 4) return (console.error("Error: Need 2 arguments (size, specid)"));
 
 const size = process.argv[2];
 const specid = process.argv[3];
@@ -21,6 +21,7 @@ const callback = function(response) {
   response.on("end", function() {
     const regexExp = /var task = '([\d.\/]+)'.+puzzleWidth: (\d+), puzzleHeight: (\d+)/;
     const match = regexExp.exec(str);
+    if (!match || match.length < 4) return (console.error("Error: This grid was not found"));
     const table = match[1].replace(/\./g, ",").replace(/\//g, " ");
     const width = match[2];
     const height = match[3];
